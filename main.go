@@ -49,8 +49,8 @@ func main() {
 	}
 
 	// dynamic server
-	http.Handle("/assets/",
-		http.StripPrefix("/assets/",
+	http.Handle("assets/",
+		http.StripPrefix("assets/",
 			http.FileServer(http.Dir("assets"))))
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		if err := tpl.ExecuteTemplate(w, "base", data.Data); err != nil {
